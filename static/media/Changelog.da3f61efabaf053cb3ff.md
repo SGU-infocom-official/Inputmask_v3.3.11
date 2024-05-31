@@ -1,6 +1,15 @@
 # Change Log
 
-## [5.0.9 - UNRELEASED]
+## [5.0.10 - UNRELEASED]
+
+### Addition
+
+### Updates
+
+### Fixed
+
+
+## [5.0.9 - 31/05/2024]
 
 ### Addition
 - Add exports field in package.json #2690
@@ -16,6 +25,7 @@
 - Enhance resolving of the ndxInitializer to determine the alternating tests.
 
 ### Fixed
+- Two-character time marker AM or PM doesn't work #2794
 - Input freezes after changing decimal value symbol twice #2731
 - Poor performance on decimal input mask #1505
 - TypeError: Cannot read properties of null (reading 'charAt') at m.onBeforeMask #2789
