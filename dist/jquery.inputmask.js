@@ -3,7 +3,7 @@
  * https://github.com/RobinHerbots/Inputmask
  * Copyright (c) 2010 - 2024 Robin Herbots
  * Licensed under the MIT license
- * Version: 5.0.10-beta.2
+ * Version: 5.0.10-beta.3
  */
 !function(e, t) {
     if ("object" == typeof exports && "object" == typeof module) module.exports = t(require("jquery")); else if ("function" == typeof define && define.amd) define([ "jquery" ], t); else {
@@ -884,21 +884,22 @@
                     }, {
                         key: "initDateObject",
                         value: function(e, t, n) {
-                            var i;
-                            for (P(t).lastIndex = 0; i = P(t).exec(this.format); ) {
-                                var a = /\d+$/.exec(i[0]), r = a ? i[0][0] + "x" : i[0], o = void 0;
+                            var i, a = -1;
+                            for (P(t).lastIndex = 0; i = P(t).exec(this.format); ) if (i.index >= a) {
+                                var r = /\d+$/.exec(i[0]), o = r ? i[0][0] + "x" : i[0], l = void 0;
                                 if (void 0 !== e) {
-                                    if (a) {
-                                        var l = P(t).lastIndex, c = j.call(n, i.index, t, n && n.maskset);
-                                        P(t).lastIndex = l, o = e.slice(0, e.indexOf(c.nextMatch[0]));
+                                    if (r) {
+                                        var c = P(t).lastIndex, u = j.call(n, i.index, t, n && n.maskset);
+                                        P(t).lastIndex = c, l = e.slice(0, e.indexOf(u.nextMatch[0]));
                                     } else {
-                                        for (var u = i[0][0], f = i.index; n && (t.placeholder[s.getTest.call(n, f).match.placeholder] || s.getTest.call(n, f).match.placeholder) === u; ) f++;
-                                        var p = f - i.index;
-                                        o = e.slice(0, p || y[r] && y[r][4] || r.length);
+                                        for (var f = i[0][0], p = i.index; n && (t.placeholder[s.getTest.call(n, p).match.placeholder] || s.getTest.call(n, p).match.placeholder) === f; ) p++;
+                                        a = p;
+                                        var d = p - i.index;
+                                        l = e.slice(0, d || y[o] && y[o][4] || o.length);
                                     }
-                                    e = e.slice(o.length);
+                                    e = e.slice(l.length);
                                 }
-                                Object.prototype.hasOwnProperty.call(y, r) && this.setValue(this, o, r, y[r][2], y[r][1]);
+                                Object.prototype.hasOwnProperty.call(y, o) && this.setValue(this, l, o, y[o][2], y[o][1]);
                             }
                         }
                     }, {
