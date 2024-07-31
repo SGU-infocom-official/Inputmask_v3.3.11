@@ -3,7 +3,7 @@
  * https://github.com/RobinHerbots/Inputmask
  * Copyright (c) 2010 - 2024 Robin Herbots
  * Licensed under the MIT license
- * Version: 5.0.10-beta.1
+ * Version: 5.0.10-beta.2
  */
 !function(e, t) {
     if ("object" == typeof exports && "object" == typeof module) module.exports = t(); else if ("function" == typeof define && define.amd) define([], t); else {
@@ -853,7 +853,7 @@
                     },
                     setValueEvent: function(e) {
                         var t = this.inputmask, n = t.dependencyLib, i = this, a = e && e.detail ? e.detail[0] : arguments[1];
-                        void 0 === a && (a = i.inputmask._valueGet(!0)), (0, l.applyInputValue)(i, a, new n.Event("input")), 
+                        void 0 === a && (a = i.inputmask._valueGet(!0)), (0, l.applyInputValue)(i, a, new n.Event("input"), void 0 !== (e && e.detail ? e.detail[0] : arguments[1])), 
                         (e.detail && void 0 !== e.detail[1] || void 0 !== arguments[2]) && c.caret.call(t, i, e.detail ? e.detail[1] : arguments[2]);
                     },
                     focusEvent: function(e) {
@@ -1424,10 +1424,14 @@
                 a.default.extendAliases({
                     datetime: {
                         mask: function(e) {
-                            return e.numericInput = !1, y.S = m.ordinalSuffix.join("|"), e.inputFormat = k[e.inputFormat] || e.inputFormat, 
-                            e.displayFormat = k[e.displayFormat] || e.displayFormat || e.inputFormat, e.outputFormat = k[e.outputFormat] || e.outputFormat || e.inputFormat, 
-                            e.regex = O(e.inputFormat, void 0, e), e.min = _(e.min, e.inputFormat, e), e.max = _(e.max, e.inputFormat, e), 
-                            null;
+                            if (e.numericInput = !1, y.S = m.ordinalSuffix.join("|"), e.inputFormat = k[e.inputFormat] || e.inputFormat, 
+                            e.repeat && (e.repeat = parseInt(e.repeat.toString()), e.repeat > 0)) {
+                                for (var t = "", n = 0; n < e.repeat; n++) t += e.inputFormat;
+                                e.inputFormat = t, e.repeat = 0;
+                            }
+                            return e.displayFormat = k[e.displayFormat] || e.displayFormat || e.inputFormat, 
+                            e.outputFormat = k[e.outputFormat] || e.outputFormat || e.inputFormat, e.regex = O(e.inputFormat, void 0, e), 
+                            e.min = _(e.min, e.inputFormat, e), e.max = _(e.max, e.inputFormat, e), null;
                         },
                         placeholder: "",
                         inputFormat: "isoDateTime",
@@ -2103,11 +2107,11 @@
                     return u;
                 }, t.writeBuffer = p;
                 var i = n(845), a = n(30), r = n(839), o = n(711), l = n(215), s = n(713);
-                function c(e, t, n) {
-                    var i = e ? e.inputmask : this, a = i.opts;
-                    e.inputmask.refreshValue = !1, "function" == typeof a.onBeforeMask && (t = a.onBeforeMask.call(i, t, a) || t), 
-                    f(e, !0, !1, t = (t || "").toString().split(""), n), i.undoValue = i._valueGet(!0), 
-                    (a.clearMaskOnLostFocus || a.clearIncomplete) && e.inputmask._valueGet() === o.getBufferTemplate.call(i).join("") && -1 === o.getLastValidPosition.call(i) && e.inputmask._valueSet("");
+                function c(e, t, n, i) {
+                    var a = e ? e.inputmask : this, r = a.opts;
+                    e.inputmask.refreshValue = !1, !0 !== i && "function" == typeof r.onBeforeMask && (t = r.onBeforeMask.call(a, t, r) || t), 
+                    f(e, !0, !1, t = (t || "").toString().split(""), n), a.undoValue = a._valueGet(!0), 
+                    (r.clearMaskOnLostFocus || r.clearIncomplete) && e.inputmask._valueGet() === o.getBufferTemplate.call(a).join("") && -1 === o.getLastValidPosition.call(a) && e.inputmask._valueSet("");
                 }
                 function u(e) {
                     e.length = 0;

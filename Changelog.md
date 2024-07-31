@@ -7,6 +7,7 @@
 ### Updates
 
 ### Fixed
+- Alias datetime + repeat bug #2806
 - The inputmask is autocompleted to the min value when deleting the radix point #2773
 
 ## [5.0.9 - 31/05/2024]

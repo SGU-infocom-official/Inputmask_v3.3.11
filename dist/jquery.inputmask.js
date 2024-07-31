@@ -3,7 +3,7 @@
  * https://github.com/RobinHerbots/Inputmask
  * Copyright (c) 2010 - 2024 Robin Herbots
  * Licensed under the MIT license
- * Version: 5.0.10-beta.1
+ * Version: 5.0.10-beta.2
  */
 !function(e, t) {
     if ("object" == typeof exports && "object" == typeof module) module.exports = t(require("jquery")); else if ("function" == typeof define && define.amd) define([ "jquery" ], t); else {
@@ -673,7 +673,7 @@
                     },
                     setValueEvent: function(e) {
                         var t = this.inputmask, n = t.dependencyLib, i = this, a = e && e.detail ? e.detail[0] : arguments[1];
-                        void 0 === a && (a = i.inputmask._valueGet(!0)), (0, s.applyInputValue)(i, a, new n.Event("input")), 
+                        void 0 === a && (a = i.inputmask._valueGet(!0)), (0, s.applyInputValue)(i, a, new n.Event("input"), void 0 !== (e && e.detail ? e.detail[0] : arguments[1])), 
                         (e.detail && void 0 !== e.detail[1] || void 0 !== arguments[2]) && c.caret.call(t, i, e.detail ? e.detail[1] : arguments[2]);
                     },
                     focusEvent: function(e) {
@@ -1138,10 +1138,14 @@
                 a.default.extendAliases({
                     datetime: {
                         mask: function(e) {
-                            return e.numericInput = !1, y.S = v.ordinalSuffix.join("|"), e.inputFormat = k[e.inputFormat] || e.inputFormat, 
-                            e.displayFormat = k[e.displayFormat] || e.displayFormat || e.inputFormat, e.outputFormat = k[e.outputFormat] || e.outputFormat || e.inputFormat, 
-                            e.regex = O(e.inputFormat, void 0, e), e.min = _(e.min, e.inputFormat, e), e.max = _(e.max, e.inputFormat, e), 
-                            null;
+                            if (e.numericInput = !1, y.S = v.ordinalSuffix.join("|"), e.inputFormat = k[e.inputFormat] || e.inputFormat, 
+                            e.repeat && (e.repeat = parseInt(e.repeat.toString()), e.repeat > 0)) {
+                                for (var t = "", n = 0; n < e.repeat; n++) t += e.inputFormat;
+                                e.inputFormat = t, e.repeat = 0;
+                            }
+                            return e.displayFormat = k[e.displayFormat] || e.displayFormat || e.inputFormat, 
+                            e.outputFormat = k[e.outputFormat] || e.outputFormat || e.inputFormat, e.regex = O(e.inputFormat, void 0, e), 
+                            e.min = _(e.min, e.inputFormat, e), e.max = _(e.max, e.inputFormat, e), null;
                         },
                         placeholder: "",
                         inputFormat: "isoDateTime",
@@ -1817,11 +1821,11 @@
                     return u;
                 }, t.writeBuffer = p;
                 var i = n(9845), a = n(6030), r = n(2839), o = n(8711), s = n(7215), l = n(4713);
-                function c(e, t, n) {
-                    var i = e ? e.inputmask : this, a = i.opts;
-                    e.inputmask.refreshValue = !1, "function" == typeof a.onBeforeMask && (t = a.onBeforeMask.call(i, t, a) || t), 
-                    f(e, !0, !1, t = (t || "").toString().split(""), n), i.undoValue = i._valueGet(!0), 
-                    (a.clearMaskOnLostFocus || a.clearIncomplete) && e.inputmask._valueGet() === o.getBufferTemplate.call(i).join("") && -1 === o.getLastValidPosition.call(i) && e.inputmask._valueSet("");
+                function c(e, t, n, i) {
+                    var a = e ? e.inputmask : this, r = a.opts;
+                    e.inputmask.refreshValue = !1, !0 !== i && "function" == typeof r.onBeforeMask && (t = r.onBeforeMask.call(a, t, r) || t), 
+                    f(e, !0, !1, t = (t || "").toString().split(""), n), a.undoValue = a._valueGet(!0), 
+                    (r.clearMaskOnLostFocus || r.clearIncomplete) && e.inputmask._valueGet() === o.getBufferTemplate.call(a).join("") && -1 === o.getLastValidPosition.call(a) && e.inputmask._valueSet("");
                 }
                 function u(e) {
                     e.length = 0;
@@ -3251,35 +3255,35 @@
                                             var I = m.matches[_];
                                             if (I && f(I, [ _ ].concat(s), p)) r = !0; else if (0 === B && (k = i(m)), I && I.matches && I.matches.length > m.matches[0].matches.length) break;
                                             a = v.slice(), h = E, v = [];
-                                            for (var R = 0; R < a.length; R++) {
-                                                var F = a[R], N = !1;
-                                                F.alternation = F.alternation || x, S(F);
+                                            for (var F = 0; F < a.length; F++) {
+                                                var R = a[F], N = !1;
+                                                R.alternation = R.alternation || x, S(R);
                                                 for (var V = 0; V < y.length; V++) {
                                                     var G = y[V];
-                                                    if ("string" != typeof M || void 0 !== F.alternation && T.includes(F.locator[F.alternation].toString())) {
-                                                        if (F.match.nativeDef === G.match.nativeDef) {
-                                                            N = !0, S(G, F);
+                                                    if ("string" != typeof M || void 0 !== R.alternation && T.includes(R.locator[R.alternation].toString())) {
+                                                        if (R.match.nativeDef === G.match.nativeDef) {
+                                                            N = !0, S(G, R);
                                                             break;
                                                         }
-                                                        if (d(F, G, c)) {
-                                                            S(F, G) && (N = !0, y.splice(y.indexOf(G), 0, F));
+                                                        if (d(R, G, c)) {
+                                                            S(R, G) && (N = !0, y.splice(y.indexOf(G), 0, R));
                                                             break;
                                                         }
-                                                        if (d(G, F, c)) {
-                                                            S(G, F);
+                                                        if (d(G, R, c)) {
+                                                            S(G, R);
                                                             break;
                                                         }
-                                                        if (P(F, G)) {
-                                                            O(F, G) || void 0 !== u.inputmask.userOptions.keepStatic ? S(F, G) && (N = !0, y.splice(y.indexOf(G), 0, F)) : c.keepStatic = !0;
+                                                        if (P(R, G)) {
+                                                            O(R, G) || void 0 !== u.inputmask.userOptions.keepStatic ? S(R, G) && (N = !0, y.splice(y.indexOf(G), 0, R)) : c.keepStatic = !0;
                                                             break;
                                                         }
-                                                        if (P(G, F)) {
-                                                            S(G, F);
+                                                        if (P(G, R)) {
+                                                            S(G, R);
                                                             break;
                                                         }
                                                     }
                                                 }
-                                                N || y.push(F);
+                                                N || y.push(R);
                                             }
                                         }
                                         v = b.concat(y), h = e, g = v.length > 0 && k, r = y.length > 0 && !k, k && g && !r && v.forEach((function(e, t) {
