@@ -7,6 +7,8 @@
 ### Updates
 
 ### Fixed
+- Autofill shows TypeError in Chrome console. #2809
+- Unmasked value stopped working in version 5.0.9 #2800
 - Alias datetime + repeat bug #2806
 - The inputmask is autocompleted to the min value when deleting the radix point #2773
 
