@@ -9,7 +9,7 @@ The colormask is the same as inputmask but allows you to specify a color for the
 Include the files which you can find in the `dist` folder.
 
 ```html
-<link rel="stylesheet" href="colormask.css">
+<link rel="stylesheet" href="colormask.css" />
 <script src="colormask.js"></script>
 ```
 
@@ -24,6 +24,6 @@ import Colormask from "inputmask/dist/colormask.js";
 
 ## Usage
 
-first have a look at the stylesheet `colormask.css` to see how you can style the mask.  Adjust the colors to your needs.
+First have a look at the stylesheet `colormask.css` to see how you can style the mask. Adjust the colors to your needs.
 
-Use it like the inputmask but with Colormask instead of Inputmask.  
+Use it like the inputmask but with Colormask instead of Inputmask.
