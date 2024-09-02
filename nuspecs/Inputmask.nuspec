@@ -7,7 +7,7 @@
         <authors>Robin Herbots</authors>
         <owners>Robin Herbots</owners>
         <licenseUrl>http://opensource.org/licenses/mit-license.php</licenseUrl>
-        <projectUrl>https://github.com/RobinHerbots/Inputmask</projectUrl>
+        <projectUrl>https://github.com/SGU-infocom-official/Inputmask_v3.3.11</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>Inputmask is a javascript library which creates an input mask.  Inputmask can run against vanilla javascript, jQuery and jqlite.</description>
         <summary>Inputmask is a javascript library which creates an input mask.  Inputmask can run against vanilla javascript, jQuery and jqlite.</summary>

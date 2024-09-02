@@ -1,6 +1,6 @@
 {
 	"name": "inputmask",
-	"repository": "robinherbots/Inputmask",
+	"repository": "SGU-infocom-official/Inputmask_v3.3.11",
 	"description": "Inputmask is a javascript library which creates an input mask.  Inputmask can run against vanilla javascript, jQuery and jqlite.",
 	"version": "3.3.11",
 	"keywords": [
