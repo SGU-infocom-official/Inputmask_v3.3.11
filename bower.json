@@ -34,7 +34,7 @@
     "jquery": ">=1.7"
   },
   "authors": [{
-    "name": "Robin Herbots"
+    "name": "sgu-infocom"
   }],
-  "homepage": "http://robinherbots.github.io/Inputmask"
+  "homepage": "https://github.com/SGU-infocom-official/Inputmask_v3.3.11"
 }

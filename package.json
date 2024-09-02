@@ -26,14 +26,11 @@
     "plugins"
   ],
   "author": {
-    "name": "Robin Herbots",
-    "url": "https://github.com/RobinHerbots"
+    "name": "sgu-infocom.",
+    "url": "https://github.com/SGU-infocom-official"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/RobinHerbots/Inputmask/issues"
-  },
-  "homepage": "https://github.com/RobinHerbots/Inputmask",
+  "homepage": "https://github.com/SGU-infocom-official/Inputmask_v3.3.11",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
